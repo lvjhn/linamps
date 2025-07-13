@@ -2,7 +2,10 @@
 
 _Pre-bundled Application Development Container with Incus_
 
-**Incus Version**: 6.0.0
+### Requirements
+
+*   **Incus Version**: 6.0.0
+*   **Node.js (via NVM) -** 22.17.0
 
 ### Major Third Party Softwares Bundled
 
