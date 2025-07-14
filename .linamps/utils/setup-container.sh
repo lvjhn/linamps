@@ -40,7 +40,7 @@ function install_sudo() {
 
     cecho yellow "Linking project folder."
    
-    ln -s /var/lib/linamps/ /home/$CONTAINER_USER_USERNAME/project
+    ln -s /var/lib/project/ /home/$CONTAINER_USER_USERNAME/project
 
     echo 
 }

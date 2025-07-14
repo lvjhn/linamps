@@ -1,6 +1,8 @@
 #!/bin/bash
 source ./.linamps/lib/@all.sh
 
+set -e
+
 # --- CREATE & MOUNT RAMDISK AS TMPFS ---
 if ! mountpoint -q /mnt/ramdisk; then
     echo "/mnt/ramdisk is already mounted. Re-mounting as tmpfs..."

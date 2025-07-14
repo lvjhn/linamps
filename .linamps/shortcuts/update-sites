@@ -6,7 +6,7 @@ include_all_config
 # Push config files into the container
 incus file push config/sites/nginx.conf \
     "$CONTAINER_NAME/etc/nginx/nginx.conf"
-incus file push config/sites/setup.conf \
+incus file push config/sites/sites.conf \
     "$CONTAINER_NAME/etc/nginx/http.d/default.conf"
 
 # Reload Nginx gracefully (soft reload)

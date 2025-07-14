@@ -1,0 +1,6 @@
+#!/bin/bash 
+source /var/lib/linamps/.linamps/lib/@all.sh
+cd /var/lib/linamps
+include_all_config 
+cd - 
+ 

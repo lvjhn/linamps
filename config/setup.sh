@@ -1,5 +1,7 @@
 source ./.linamps/lib/@all.sh 
 
+set -e 
+
 include_all_config
 
 cecho bright_yellow --bold "# [CONTAINER] SETTING UP PROJECT"
@@ -14,7 +16,7 @@ function install_python() {
 
 function install_nodejs() {
     cecho bright_blue --bold "[CONTAINER] Installing [nodejs and npm]..."
-    sudo apk add python3=$PYTHON_VERSION py3-pip=$PIP_VERSION
+    sudo apk add nodejs=$NODE_VERSION npm=$NPM_VERSION
     echo
 }
 
@@ -137,12 +139,21 @@ function install_openssl() {
 }
 
 function install_ufw() {
-    cecho bright_blue --bold "[CONTAINER] Installing [openssl]" 
+    cecho bright_blue --bold "[CONTAINER] Installing [ufw]" 
 
-    sudo apk add openssl=$UFW_VERSION
+    sudo apk add ufw=$UFW_VERSION
 
     echo
 }
+
+function install_pm2() {
+    cecho bright_blue --bold "[CONTAINER] Installing [pm2]" 
+
+    sudo npm install -g pm2
+
+    echo
+}
+
 
 # --- CONFIGURATION --- # 
 function setup_ssh_server() {
@@ -211,28 +222,30 @@ function setup_nginx() {
   sudo rm -rf /etc/nginx/nginx.conf 
 
   sudo cp ./config/sites/nginx.conf /etc/nginx/nginx.conf 
-  sudo cp ./config/sites/setup.conf /etc/nginx/http.d/default.conf
+  sudo cp ./config/sites/sites.conf /etc/nginx/http.d/default.conf
 
   sudo chmod 644 /home/$CONTAINER_USER_USERNAME/project/source
 }
 
 
 
+
 # --- INSTALLATION FLOW --- # 
-# install_python
-# install_nodejs
-# install_php 
-# install_composer
-# install_adminer
-# install_mailpit
-# install_memcached
-# install_postgresql
-# install_nginx
-# install_openssh
-# install_openssl
-# install_ufw
+install_python
+install_nodejs
+install_php 
+install_composer
+install_adminer
+install_mailpit
+install_memcached
+install_postgresql
+install_nginx
+install_openssh
+install_openssl
+install_ufw
+install_pm2
 
 # --- CONFIGURATION FLOW --- # 
-# setup_postgresql
-# setup_ssh_server
+setup_postgresql
+setup_ssh_server
 setup_nginx

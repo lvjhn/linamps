@@ -1,2 +1,6 @@
 #!/bin/bash
-echo "RESTART"
+source ./.linamps/lib/@all.sh
+
+include_all_config 
+
+incus restart $CONTAINER_NAME

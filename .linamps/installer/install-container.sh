@@ -40,7 +40,7 @@ function setup_storage() {
     incus config device add $CONTAINER_NAME \
         project disk \
         source=$(pwd) \
-        path=/var/lib/linamps/ \
+        path=/var/lib/project/ \
         shift=true
     
     incus config device add $CONTAINER_NAME \
@@ -91,10 +91,21 @@ function install_bash() {
     echo
 }
 
+
+function copy_context_script() {
+    cecho bright_green --bold "# [HOST] Linking context script..." 
+    incus exec $CONTAINER_NAME -- \
+        cp  /var/lib/project/.linamps/misc/linamps-context \
+            /usr/bin/linamps-context
+     incus exec $CONTAINER_NAME -- \
+        chmod +x /usr/bin/linamps-context
+     
+}
+
 function execute_setup_script() {
     cecho bright_green --bold "# [HOST] Executing setup script..." 
     incus exec $CONTAINER_NAME -- bash -c "
-        cd /var/lib/linamps && 
+        cd /var/lib/project && 
         bash .linamps/utils/setup-container.sh
     "
     echo
@@ -106,6 +117,7 @@ function flow() {
     setup_network
     start_container
     install_bash
+    copy_context_script
     execute_setup_script
 }
 

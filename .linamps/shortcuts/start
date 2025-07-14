@@ -1,2 +1,14 @@
 #!/bin/bash
-echo "STARTING"
+source ./.linamps/lib/@all.sh
+
+include_all_config 
+
+sudo echo 
+
+bash run update-ns
+
+login_as_user "
+    cd project && 
+    echo "$CONTAINER_USER_PASSWORD" | sudo -S pm2 start config/services/ecosystem.config.js &&
+    pm2 logs
+"
