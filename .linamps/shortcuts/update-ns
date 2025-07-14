@@ -18,6 +18,11 @@ ln -s /mnt/ramdisk/ip_mappings ./.linamps/tmp/ip_mappings
 
 # --- SYMLINK TO LOCAL PATH ---
 incus exec linamps-ns -- sh -c "
+    cd /var/lib/linamps && 
+    bash .linamps/ns/setup-addresses.sh
+"
+
+incus exec linamps-ns -- sh -c "
     if pgrep dnsmasq >/dev/null; then 
         killall dnsmasq; 
         while pgrep dnsmasq >/dev/null; do 

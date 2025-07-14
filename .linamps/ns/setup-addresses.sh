@@ -2,7 +2,7 @@ source ./.linamps/lib/@all.sh
 
 include_all_config
 
-cecho bright_green --bold "# Setting up addresses..."
+cecho bright_green --bold "# [NAMESERVER] Setting up addresses..."
 
 function backup_dnsmasq() {
     cecho yellow "Backing up /etc/dnsmasq.conf"
@@ -44,15 +44,21 @@ function update_dnmasq() {
     cd -
 }
 
-function reload_dnsmasq() {
-    kill -HUP $(pidof dnsmasq)
+function start_dnsmasq() {
+    if pgrep dnsmasq >/dev/null; then 
+        killall dnsmasq; 
+        while pgrep dnsmasq >/dev/null; do 
+            sleep 0.1; 
+        done; 
+        fi; 
+    dnsmasq
 }
 
 function flow() {
     backup_dnsmasq
     setup_dnsmasq
     update_dnmasq
-    reload_dnsmasq
+    start_dnsmasq
 }
 
 flow

@@ -1,0 +1,18 @@
+#!/bin/bash
+sudo cp -r . ~/.linamps 
+
+source ~/.linamps/.linamps/lib/@all.sh
+
+find_and_replace ~/.linamps/env/project.env \
+    "PROJECT_NAME=linamps-project" \
+    "PROJECT_NAME=linamps"
+
+find_and_replace ~/.linamps/env/project.env \
+    "CONTAINER_NAME=linamps-project" \
+    "CONTAINER_NAME=linamps"
+
+cd ~/.linamps 
+
+source run install
+
+cd -

@@ -8,7 +8,7 @@ include_all_config
 cecho bright_cyan --bold ":: --- INSTALLING CONTAINER"
 
 function initialize_container() {
-    cecho bright_green --bold "# Initializing container..."
+    cecho bright_green --bold "# [HOST] Initializing container..."
 
     # --- remove existing container
     if has_instance $CONTAINER_NAME; then 
@@ -32,7 +32,7 @@ function initialize_container() {
 }
 
 function setup_storage() {
-    cecho bright_green --bold "# Setting up container storage..."
+    cecho bright_green --bold "# [HOST] Setting up container storage..."
 
     sudo mkdir -p /mnt/ramdisk/
     sudo touch /mnt/ramdisk/ip_mappings
@@ -53,7 +53,7 @@ function setup_storage() {
 }
 
 function setup_network() {
-    cecho bright_green --bold "# Setting up container network..."
+    cecho bright_green --bold "# [HOST] Setting up container network..."
 
     if ! has_network $NETWORK_NAME ; then
         cecho yellow "Creating network bridge: $NETWORK_NAME."
@@ -72,7 +72,7 @@ function setup_network() {
 }
 
 function start_container() {
-    cecho bright_green --bold "# Starting container..."
+    cecho bright_green --bold "# [HOST] Starting container..."
 
     if is_instance_running $CONTAINER_NAME; then 
         cecho yellow "Container is already running, skipping."
@@ -80,6 +80,24 @@ function start_container() {
         cecho yellow "Container is not yet running, starting."
         incus start $CONTAINER_NAME
     fi
+
+    echo
+}
+
+function install_bash() {
+    cecho bright_green --bold "# [HOST] Installing bash..." 
+    incus exec $CONTAINER_NAME -- sh -c "apk update"
+    incus exec $CONTAINER_NAME -- sh -c "apk add bash"
+    echo
+}
+
+function execute_setup_script() {
+    cecho bright_green --bold "# [HOST] Executing setup script..." 
+    incus exec $CONTAINER_NAME -- bash -c "
+        cd /var/lib/linamps && 
+        bash .linamps/utils/setup-container.sh
+    "
+    echo
 }
 
 function flow() {
@@ -87,6 +105,8 @@ function flow() {
     setup_storage
     setup_network
     start_container
+    install_bash
+    execute_setup_script
 }
 
 flow

@@ -9,7 +9,7 @@ function include_versions_config() {
 
 # --- INCLUDE SERVICES CONFIGURATION --- # 
 function include_services_config() {
-    if [ -f ./env/versions.env ]; then
+    if [ -f ./env/services.env ]; then
         source ./env/services.env
     fi
 }

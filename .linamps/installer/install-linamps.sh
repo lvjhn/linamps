@@ -13,7 +13,7 @@ sudo touch /dev/null
 cecho bright_cyan --bold ":: --- INSTALLING LINAMPS"
 
 function create_linamps_group() {
-    cecho bright_green --bold "# Creating [linamps] group."
+    cecho bright_green --bold "# [HOST] Creating [linamps] group."
 
     if getent group linamps > /dev/null 2>&1; then
         cecho yellow "Group [linamps] exist already."
@@ -27,7 +27,7 @@ function create_linamps_group() {
 
 
 function create_shared_directory() {
-    cecho bright_green --bold "# Creating shared directory [$LINAMPS_DIR]."
+    cecho bright_green --bold "# [HOST] Creating shared directory [$LINAMPS_DIR]."
 
     _USER=$USER
 
