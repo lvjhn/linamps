@@ -15,3 +15,14 @@ ip_mappings | sudo tee /mnt/ramdisk/ip_mappings > /dev/null
 # --- SYMLINK TO LOCAL PATH ---
 rm -f ./.linamps/tmp/ip_mappings
 ln -s /mnt/ramdisk/ip_mappings ./.linamps/tmp/ip_mappings
+
+# --- SYMLINK TO LOCAL PATH ---
+incus exec linamps-ns -- sh -c "
+    if pgrep dnsmasq >/dev/null; then 
+        killall dnsmasq; 
+        while pgrep dnsmasq >/dev/null; do 
+            sleep 0.1; 
+        done; 
+        fi; 
+    dnsmasq
+"
