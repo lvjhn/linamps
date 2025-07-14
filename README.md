@@ -26,6 +26,7 @@ _Pre-bundled Application Development Container with Incus_
 *   Curl
 *   Composer
 *   UFW
+*   DNSMasq
 
 ### Versions
 
