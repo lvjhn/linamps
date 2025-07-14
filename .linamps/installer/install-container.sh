@@ -19,7 +19,7 @@ function initialize_container() {
             incus stop $CONTAINER_NAME --force
         fi 
         
-        incus delete $CONTAINER_NAME
+        incus delete $CONTAINER_NAME --force
     fi 
 
     # --- download and launch container
@@ -49,14 +49,23 @@ function setup_storage() {
         path=/host/ramdisk/ \
         shift=true
 
+    incus config device add $CONTAINER_NAME \
+        shared disk \
+        source=/var/lib/linamps \
+        path=/var/lib/project/.linamps/host-shared \
+        shift=true
+
+    sudo chown $USER:$USER -R .
+    sudo chmod 755 -R .
+
     echo
 }
 
 function setup_network() {
     cecho bright_green --bold "# [HOST] Setting up container network..."
 
-    if ! has_network $NETWORK_NAME ; then
-        cecho yellow "Creating network bridge: $NETWORK_NAME."
+    if ! has_network $NETWORK_NAME; then
+        cecho yellow "Creating network bridge: $NETWORK_NAME with $NETWORK_IP/24."
         incus network create "$NETWORK_NAME"
         incus network set "$NETWORK_NAME" ipv4.address=$NETWORK_IP/24
         incus network set "$NETWORK_NAME" ipv4.nat=true
@@ -65,24 +74,28 @@ function setup_network() {
         cecho yellow "Network bridge $NETWORK_NAME already exists."
     fi
 
-    cecho yellow "Attaching network $NETWORK_NAME to container."
-    incus config device add $CONTAINER_NAME eth0 nic network=$NETWORK_NAME name=eth0
-    
-    echo
-}
+    cecho yellow "Attaching network [$NETWORK_NAME] to container [$CONTAINER_NAME]."
 
-function start_container() {
-    cecho bright_green --bold "# [HOST] Starting container..."
-
-    if is_instance_running $CONTAINER_NAME; then 
-        cecho yellow "Container is already running, skipping."
-    else 
-        cecho yellow "Container is not yet running, starting."
-        incus start $CONTAINER_NAME
+    if incus config device list "$CONTAINER_NAME" | grep -q "^eth0$"; then
+        cecho yellow "eth0 already exists in container. Removing first..."
+        incus config device remove "$CONTAINER_NAME" eth0
     fi
 
+    incus config device add "$CONTAINER_NAME" eth0 nic network="$NETWORK_NAME" name=eth0
+    incus exec "$CONTAINER_NAME" -- sh -c "ip link set eth0 up && udhcpc -i eth0"
+
+    cecho yellow "Setting up nameservers [host]."
+    if ! find_in_file "/etc/resolv.conf" "nameserver $NAMESERVER_IP"; then
+        BKP=$(cat /etc/resolv.conf)
+        echo "$BKP\nameserver $NAMESERVER_IP" | sudo tee /etc/resolv.conf
+    fi
+
+    cecho yellow "Setting up nameservers [container]."
+    incus file push /etc/resolv.conf $CONTAINER_NAME/etc/resolv.conf
+
     echo
 }
+
 
 function install_bash() {
     cecho bright_green --bold "# [HOST] Installing bash..." 
@@ -115,7 +128,6 @@ function flow() {
     initialize_container
     setup_storage
     setup_network
-    start_container
     install_bash
     copy_context_script
     execute_setup_script

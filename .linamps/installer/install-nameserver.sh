@@ -43,6 +43,10 @@ function create_ns_container() {
             ipv4.address=$NAMESERVER_IP
         echo
 
+        incus exec "linamps-ns" -- \
+            sh -c "ip link set eth0 up && udhcpc -i eth0"
+
+
         # --- set up container
         setup_ns_container
     fi 
