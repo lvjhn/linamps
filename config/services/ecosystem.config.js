@@ -1,9 +1,13 @@
+const ENVIRONMENT = process.env.ENVIRONMENT 
+
+console.log(`RUNNING ENVIRONMENT [${ENVIRONMENT}]`)
+
 module.exports = {
   apps: [
     {
       name: "WEB-SERVER (BACKEND)",
       script: "bash",
-      args: ["scripts/run-backend.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-backend.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,
@@ -12,7 +16,7 @@ module.exports = {
     {
       name: "WEB-SERVER (WEB)",
       script: "bash",
-      args: ["scripts/run-frontend.web.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-frontend.web.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,
@@ -21,7 +25,7 @@ module.exports = {
     {
       name: "WEB-SERVER (MOBILE)",
       script: "bash",
-      args: ["scripts/run-frontend.mobile.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-frontend.mobile.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,
@@ -30,7 +34,7 @@ module.exports = {
     {
       name: "MAILPIT",
       script: "bash",
-      args: ["scripts/run-mailpit.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-mailpit.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,
@@ -39,7 +43,7 @@ module.exports = {
     {
       name: "ADMINER",
       script: "bash",
-      args: ["scripts/run-adminer.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-adminer.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,
@@ -48,7 +52,7 @@ module.exports = {
     {
       name: "NGINX",
       script: "bash",
-      args: ["scripts/run-nginx.sh"],
+      args: [`scripts/${ENVIRONMENT}/run-nginx.sh`],
       interpreter: null,
       autorestart: false,
       watch: false,

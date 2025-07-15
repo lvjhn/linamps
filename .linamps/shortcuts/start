@@ -7,8 +7,12 @@ sudo echo
 
 bash run update-ns
 
+bash run update-sites
+
 login_as_user "
     cd project && 
-    echo "$CONTAINER_USER_PASSWORD" | sudo -S pm2 start config/services/ecosystem.config.js &&
+    source linamps-context &&
+    ENVIRONMENT=$PROJECT_ENV \
+       pm2 start config/services/ecosystem.config.js &&
     pm2 logs
 "
