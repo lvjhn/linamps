@@ -158,9 +158,9 @@ function install_pm2() {
 
 
 function install_envsubst() {
-    cecho bright_blue --bold "[CONTAINER] Installing [pm2]" 
+    cecho bright_blue --bold "[CONTAINER] Installing [envsubst]" 
 
-    apk add envsubst=$ENVSUBST_VERSION
+    apk add gettext-envsubst=$ENVSUBST_VERSION
 
     echo
 }

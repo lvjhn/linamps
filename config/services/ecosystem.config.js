@@ -1,6 +1,15 @@
 module.exports = {
   apps: [
     {
+      name: "WEB-SERVER (BACKEND)",
+      script: "bash",
+      args: ["scripts/run-backend.sh"],
+      interpreter: null,
+      autorestart: false,
+      watch: false,
+      time: true
+    },
+    {
       name: "WEB-SERVER (WEB)",
       script: "bash",
       args: ["scripts/run-frontend.web.sh"],

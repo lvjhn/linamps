@@ -17,4 +17,10 @@ incus file push ./.linamps/tmp/sites.conf \
     "$CONTAINER_NAME/etc/nginx/http.d/default.conf"
 
 # Reload Nginx gracefully (soft reload)
-incus exec "$CONTAINER_NAME" -- bash -c "nginx -s reload"
+incus exec "$CONTAINER_NAME" -- bash -c "
+    if [ -f /rn/nginx/nginx.pid ]; then
+        sudo nginx -s reload
+    else 
+        sudo nginx
+    fi
+"
