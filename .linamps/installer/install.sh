@@ -12,17 +12,20 @@ cecho yellow --bold ":: LINAMPS INSTALLER ::"
 
 echo 
 
-# # # --- install defaults 
+# --- install defaults 
 source ./.linamps/installer/install-linamps.sh
 source ./.linamps/installer/install-container.sh
 source ./.linamps/installer/install-nameserver.sh
 
-# # --- setup project 
+# --- setup project 
 bash utils/fix-permissions.sh
 bash run setup
 
-# # --- install ca certificates 
+# --- install ca certificates 
 source ./.linamps/installer/install-ca-certificates.sh
+
+# --- sync ~/.bashrc
+incus file push .linamps/.bashrc linamps-project/home/$CONTAINER_USER_USERNAME/.bashrc
 
 # --- update sites 
 bash run update-sites

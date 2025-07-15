@@ -1,6 +1,6 @@
 #!/bin/bash 
-source /var/lib/linamps/.linamps/lib/@all.sh
-cd /var/lib/linamps
+cd /var/lib/project
+source .linamps/lib/@all.sh
 include_all_config 
 cd - 
  

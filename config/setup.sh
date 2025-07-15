@@ -1,12 +1,11 @@
-source ./.linamps/lib/@all.sh 
+source ./.linamps/lib/@all.sh
 
-set -e 
+set -e
 
 include_all_config
 
+echo
 cecho bright_yellow --bold "# [CONTAINER] SETTING UP PROJECT"
-
-sudo echo 
 
 function install_python() {
     cecho bright_blue --bold "[CONTAINER] Installing [python]..."
