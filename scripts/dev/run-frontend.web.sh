@@ -1,2 +1,3 @@
 #!/bin/bash
-exec python3 -m http.server 5173
+cd source/frontend-web
+exec npm run dev

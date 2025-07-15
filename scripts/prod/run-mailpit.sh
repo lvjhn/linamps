@@ -1,2 +1,3 @@
 #!/bin/bash
-exec /opt/mailpit/mailpit 
+# exec /opt/mailpit/mailpit 
+

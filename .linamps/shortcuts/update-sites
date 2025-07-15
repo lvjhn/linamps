@@ -9,7 +9,7 @@ non_empty_vars=$(env | awk -F= 'length($2) > 0 { printf "$%s ", $1 }')
 
 envsubst "$non_empty_vars" < ./config/sites/nginx.conf \
     > ./.linamps/tmp/nginx.conf
-envsubst "$non_empty_vars" < ./config/sites/sites.$PROJECT_ENV.conf \
+envsubst "$non_empty_vars" < ./config/sites/sites.conf \
     > ./.linamps/tmp/sites.conf
 
 # Push config files into the container
