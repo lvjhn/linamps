@@ -62,11 +62,13 @@ function install_php() {
 function install_composer() {
     cecho bright_blue --bold "[CONTAINER] Installing [composer]"
     echo $HOME
+    cd /tmp
     php84 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     php84 -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
     php84 composer-setup.php --version=$COMPOSER_VERSION
     php84 -r "unlink('composer-setup.php');"
     sudo mv composer.phar /usr/bin/composer
+    cd -
 }
 
 function install_postgresql() {
@@ -150,6 +152,15 @@ function install_pm2() {
     cecho bright_blue --bold "[CONTAINER] Installing [pm2]" 
 
     sudo npm install -g pm2
+
+    echo
+}
+
+
+function install_envsubst() {
+    cecho bright_blue --bold "[CONTAINER] Installing [pm2]" 
+
+    apk add envsubst=$ENVSUBST_VERSION
 
     echo
 }
@@ -244,6 +255,7 @@ install_openssh
 install_openssl
 install_ufw
 install_pm2
+install_envsubst
 
 # --- CONFIGURATION FLOW --- # 
 setup_postgresql

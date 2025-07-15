@@ -86,8 +86,7 @@ function setup_network() {
 
     cecho yellow "Setting up nameservers [host]."
     if ! find_in_file "/etc/resolv.conf" "nameserver $NAMESERVER_IP"; then
-        BKP=$(cat /etc/resolv.conf)
-        echo "$BKP\nameserver $NAMESERVER_IP" | sudo tee /etc/resolv.conf
+        sudo sh -c "echo 'nameserver $NAMESERVER_IP' >> /etc/resolv.conf"
     fi
 
     cecho yellow "Setting up nameservers [container]."

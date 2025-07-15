@@ -4,7 +4,7 @@ function find_and_replace() {
     local HAYSTACK=$1 
     local NEEDLE=$2
     local REPLACE=$3
-    $4 sed -i "s|^$NEEDLE|$REPLACE|" "$HAYSTACK"
+    $4 sed -i "s/^$NEEDLE/$REPLACE/g" "$HAYSTACK"
 }
 
 # --- FIND IN FILE --- # 

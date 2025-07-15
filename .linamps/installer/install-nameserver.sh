@@ -46,6 +46,16 @@ function create_ns_container() {
         incus exec "linamps-ns" -- \
             sh -c "ip link set eth0 up && udhcpc -i eth0"
 
+        # --- set up nameservers
+        cecho yellow "Setting up nameservers [host]."
+        if ! find_in_file "/etc/resolv.conf" "nameserver $NAMESERVER_IP"; then
+            sudo sh -c "echo 'nameserver $NAMESERVER_IP' >> /etc/resolv.conf"
+        fi
+
+        cecho yellow "Setting up nameservers [container]."
+        incus file push /etc/resolv.conf $CONTAINER_NAME/etc/resolv.conf
+
+        echo
 
         # --- set up container
         setup_ns_container
