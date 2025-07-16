@@ -50,7 +50,8 @@ function install_php() {
         php$PHP_VERSION-pdo_pgsql \
         php$PHP_VERSION-posix \
         php$PHP_VERSION-exif \
-        php$PHP_VERSION-pcntl 
+        php$PHP_VERSION-pcntl \
+        php$PHP_VERSION-fpm
 
     sudo rm -rf /usr/bin/php
     sudo ln -s $(which php$PHP_VERSION) /usr/bin/php

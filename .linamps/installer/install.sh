@@ -22,16 +22,24 @@ bash utils/fix-permissions.sh
 bash run setup
 
 # # --- install ca certificates 
+echo
+cecho bright_green --bold "# [HOST] Installing CA certificates..."
 source ./.linamps/installer/install-ca-certificates.sh
 
 # # --- sync ~/.bashrc
-incus file push .linamps/.bashrc linamps-project/home/$CONTAINER_USER_USERNAME/.bashrc
+echo 
+cecho bright_green --bold "# [HOST] Syncing .bashrc..."
+incus file push .linamps/.bashrc $CONTAINER_NAME/home/$CONTAINER_USER_USERNAME/.bashrc
 
 # --- update server 
+echo 
+cecho bright_green --bold "# [HOST] Setting up nginx.."
 login_as_user "
     cd project && 
-    echo $CONTAINER_USER_PASSWORD | sudo -S bash config/sites/server-setup.sh
+    echo $CONTAINER_USER_PASSWORD | sudo -S bash config/sites/nginx-setup.sh
 "
 
 # --- update sites 
+echo 
+cecho bright_green --bold "# [HOST] Updating sites..."
 bash run update-sites
