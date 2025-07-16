@@ -43,3 +43,6 @@ login_as_user "
 echo 
 cecho bright_green --bold "# [HOST] Updating sites..."
 bash run update-sites
+
+cecho 
+echo bright_blue --bold "# DONE."
