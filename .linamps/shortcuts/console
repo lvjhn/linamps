@@ -1,0 +1,6 @@
+#!/bin/bash
+source ./.linamps/lib/@all.sh 
+
+include_all_config
+
+login_as_user "cd project && bash"

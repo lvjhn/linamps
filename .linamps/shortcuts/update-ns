@@ -1,0 +1,35 @@
+#!/bin/bash
+source ./.linamps/lib/@all.sh
+
+set -e
+
+# --- CREATE & MOUNT RAMDISK AS TMPFS ---
+if ! mountpoint -q /mnt/ramdisk; then
+    echo "/mnt/ramdisk is already mounted. Re-mounting as tmpfs..."
+    sudo mkdir -p /mnt/ramdisk
+    sudo mount -t tmpfs -o size=64M tmpfs /mnt/ramdisk
+fi
+
+# --- CREATE IP MAPPINGS FILE IN RAMDISK ---
+sudo rm -f /mnt/ramdisk/ip_mappings
+ip_mappings | sudo tee /mnt/ramdisk/ip_mappings > /dev/null
+
+# --- SYMLINK TO LOCAL PATH ---
+rm -f ./.linamps/tmp/ip_mappings
+ln -s /mnt/ramdisk/ip_mappings ./.linamps/tmp/ip_mappings
+
+# --- SYMLINK TO LOCAL PATH ---
+incus exec linamps-ns -- sh -c "
+    cd /var/lib/linamps && 
+    bash .linamps/ns/setup-addresses.sh
+"
+
+incus exec linamps-ns -- sh -c "
+    if pgrep dnsmasq >/dev/null; then 
+        killall dnsmasq; 
+        while pgrep dnsmasq >/dev/null; do 
+            sleep 0.1; 
+        done; 
+        fi; 
+    dnsmasq
+"

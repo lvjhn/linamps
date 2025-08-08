@@ -1,0 +1,395 @@
+pm2 launched in no-daemon mode (you can add DEBUG="*" env variable to get more messages)
+2025-07-14T09:41:19: PM2 log: Launching in no daemon mode
+2025-07-14T09:41:19: PM2 log: [PM2] Starting /var/lib/project/scripts/run-frontend.sh in fork_mode (1 instance)
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+2025-07-14T09:41:19: PM2 log: [PM2] Done.
+2025-07-14T09:41:19: PM2 log: ┌────┬──────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name     │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ setup    │ default     │ N/A     │ fork    │ 3054     │ 0s     │ 0    │ online    │ 0%       │ 1.5mb    │ root     │ disabled │
+└────┴──────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+2025-07-14T09:41:19: PM2 log: [--no-daemon] Continue to stream logs
+2025-07-14T09:41:19: PM2 log: [--no-daemon] Exit on target PM2 exit pid=3043
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:19 0|setup  | Traceback (most recent call last):
+09:41:19 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:19 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:19 0|setup  |     test(
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:19 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:19 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:19 0|setup  |     self.server_bind()
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:19 0|setup  |     return super().server_bind()
+09:41:19 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:19 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:19 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:19 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:19 0|setup  |     self.socket.bind(self.server_address)
+09:41:19 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:19: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:19 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:19: PM2 log: App [setup:0] starting in -fork mode-
+09:41:19 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:19: PM2 log: App [setup:0] online
+09:41:19 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:20 0|setup  | Traceback (most recent call last):
+09:41:20 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:20 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:20 0|setup  |     test(
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:20 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:20 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:20 0|setup  |     self.server_bind()
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:20 0|setup  |     return super().server_bind()
+09:41:20 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:20 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:20 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:20 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:20 0|setup  |     self.socket.bind(self.server_address)
+09:41:20 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:20: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:20 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:20: PM2 log: App [setup:0] starting in -fork mode-
+09:41:20 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:20: PM2 log: App [setup:0] online
+09:41:20 PM2      | App [setup:0] online
+09:41:21 0|setup  | Traceback (most recent call last):
+09:41:21 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:21 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:21 0|setup  |     test(
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:21 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:21 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:21 0|setup  |     self.server_bind()
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:21 0|setup  |     return super().server_bind()
+09:41:21 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:21 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:21 0|setup  |     self.socket.bind(self.server_address)
+09:41:21 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:21: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:21 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:21: PM2 log: App [setup:0] starting in -fork mode-
+09:41:21 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:21: PM2 log: App [setup:0] online
+09:41:21 PM2      | App [setup:0] online
+09:41:21 0|setup  | Traceback (most recent call last):
+09:41:21 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:21 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:21 0|setup  |     test(
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:21 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:21 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:21 0|setup  |     self.server_bind()
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:21 0|setup  |     return super().server_bind()
+09:41:21 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:21 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:21 0|setup  |     self.socket.bind(self.server_address)
+09:41:21 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:21: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:21 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:21: PM2 log: App [setup:0] starting in -fork mode-
+09:41:21 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:21: PM2 log: App [setup:0] online
+09:41:21 PM2      | App [setup:0] online
+09:41:21 0|setup  | Traceback (most recent call last):
+09:41:21 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:21 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:21 0|setup  |     test(
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:21 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:21 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:21 0|setup  |     self.server_bind()
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:21 0|setup  |     return super().server_bind()
+09:41:21 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:21 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:21 0|setup  |     self.socket.bind(self.server_address)
+09:41:21 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:21: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:21 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:21: PM2 log: App [setup:0] starting in -fork mode-
+09:41:21 PM2      | App [setup:0] starting in -fork mode-
+2025-07-14T09:41:21: PM2 log: App [setup:0] online
+09:41:21 PM2      | App [setup:0] online
+09:41:21 0|setup  | Traceback (most recent call last):
+09:41:21 0|setup  |   File "<frozen runpy>", line 198, in _run_module_as_main
+09:41:21 0|setup  |   File "<frozen runpy>", line 88, in _run_code
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1314, in <module>
+09:41:21 0|setup  |     test(
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1261, in test
+09:41:21 0|setup  |     with ServerClass(addr, HandlerClass) as httpd:
+09:41:21 0|setup  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+09:41:21 0|setup  |     self.server_bind()
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 1308, in server_bind
+09:41:21 0|setup  |     return super().server_bind()
+09:41:21 0|setup  |            ^^^^^^^^^^^^^^^^^^^^^
+09:41:21 0|setup  |   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+09:41:21 0|setup  |     socketserver.TCPServer.server_bind(self)
+09:41:21 0|setup  |   File "/usr/lib/python3.12/socketserver.py", line 478, in server_bind
+09:41:21 0|setup  |     self.socket.bind(self.server_address)
+09:41:21 0|setup  | OSError: [Errno 98] Address in use
+2025-07-14T09:41:21: PM2 log: App [setup:0] exited with code [1] via signal [SIGINT]
+2025-07-14T09:41:21: PM2 log: Script /var/lib/project/scripts/run-frontend.sh had too many unstable restarts (16). Stopped. "errored"
+09:41:21 PM2      | App [setup:0] exited with code [1] via signal [SIGINT]
+09:41:21 PM2      | Script /var/lib/project/scripts/run-frontend.sh had too many unstable restarts (16). Stopped. "errored"

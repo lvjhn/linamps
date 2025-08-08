@@ -1,0 +1,18 @@
+#!/bin/bash
+source ./.linamps/lib/@all.sh
+
+include_all_config 
+
+sudo echo 
+
+bash run update-ns
+
+bash run update-sites
+
+login_as_user "
+    cd project && 
+    source linamps-context &&
+    ENVIRONMENT=$PROJECT_ENV \
+       pm2 start config/services/ecosystem.config.js &&
+    pm2 logs
+"

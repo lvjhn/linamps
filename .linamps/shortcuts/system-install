@@ -1,0 +1,22 @@
+#!/bin/bash
+rm -rf ~/.linamps 
+cp -r . ~/.linamps 
+
+cd ~/.linamps 
+
+source .linamps/lib/@all.sh
+
+include_all_config
+
+find_and_replace env/project.env \
+    "PROJECT_NAME=linamps-project" \
+    "PROJECT_NAME=linamps"
+
+find_and_replace env/project.env \
+    "CONTAINER_NAME=linamps-project" \
+    "CONTAINER_NAME=linamps"
+
+bash utils/fix-permissions.sh
+source run install
+
+cd -

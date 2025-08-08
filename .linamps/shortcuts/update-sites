@@ -1,0 +1,33 @@
+#!/bin/bash
+source ./.linamps/lib/@all.sh
+
+set -o allexport 
+include_all_config
+set +o allexport
+
+
+non_empty_vars=$(env | awk -F= 'length($2) > 0 { printf "$%s ", $1 }')
+
+envsubst "$non_empty_vars" < ./config/sites/nginx.conf \
+    > ./.linamps/tmp/nginx.conf
+envsubst "$non_empty_vars" < ./config/sites/sites.conf \
+    > ./.linamps/tmp/sites.conf
+
+# Push config files into the container
+incus exec $CONTAINER_NAME -- bash -c "if [ ! -d /run/nginx ]; then 
+        mkdir /run/nginx/ 
+    fi"
+
+incus file push ./.linamps/tmp/nginx.conf \
+    "$CONTAINER_NAME/etc/nginx/nginx.conf"
+incus file push ./.linamps/tmp/sites.conf \
+    "$CONTAINER_NAME/etc/nginx/http.d/default.conf"
+
+# Reload Nginx gracefully (soft reload)
+incus exec "$CONTAINER_NAME" -- bash -c "
+    if [ -f /run/nginx/nginx.pid ]; then
+        nginx -s reload
+    else 
+        sudo nginx
+    fi
+"

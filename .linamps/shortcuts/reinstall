@@ -1,0 +1,24 @@
+#!/bin/bash
+source ./.linamps/lib/@all.sh
+
+set -e
+
+include_all_config 
+
+if has_instance linamps; then 
+    incus delete linamps --force
+fi 
+
+if has_instance linamps-ns; then 
+    incus delete linamps-ns --force
+fi
+
+if has_network linamps; then 
+    incus network delete linamps
+fi
+
+rm -rf ~/.linamps
+
+bash run system-install
+
+bash run install
